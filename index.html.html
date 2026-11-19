@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#081426">
+<title>ХВИЛІ — від людського тіла до краю Всесвіту</title>
+<style>
+:root{--bg:#071426;--panel:#10243d;--panel2:#142d49;--ink:#edf6ff;--muted:#a9bfd5;--cyan:#66e2ed;--violet:#b7a0ff;--gold:#ffd477;--pink:#ff9ec5;--green:#8de0b2;--line:#294563;--shadow:0 18px 50px #0005}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 15% 0%,#16345a 0,transparent 35%),radial-gradient(ellipse at 90% 15%,#30265b 0,transparent 30%),var(--bg);color:var(--ink);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+button,input{font:inherit}button{cursor:pointer}.wrap{max-width:1180px;margin:auto;padding:22px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:10px 0 22px}.brand{font-weight:900;letter-spacing:.14em;color:var(--cyan);font-size:.9rem}.offline{border:1px solid #47718c;border-radius:30px;padding:6px 12px;color:var(--green);font-size:.8rem}
+.hero{position:relative;overflow:hidden;border:1px solid #365574;border-radius:28px;padding:clamp(24px,5vw,56px);background:linear-gradient(120deg,#112c49ed,#151b3bed);box-shadow:var(--shadow)}
+.hero:after{content:"";position:absolute;width:360px;height:360px;border:1px solid #66e2ed33;border-radius:50%;right:-90px;top:-140px;box-shadow:0 0 0 35px #66e2ed0c,0 0 0 75px #66e2ed08}
+.kicker{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.hero h1{font-size:clamp(2.1rem,6vw,4.6rem);line-height:1.02;max-width:800px;margin:15px 0}.hero h1 span{color:var(--cyan)}.hero p{color:#c6d9ea;max-width:720px;font-size:1.08rem}.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.chip{padding:8px 13px;border:1px solid #45617d;border-radius:30px;color:#d7e8f6;font-size:.88rem}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.btn{border:1px solid #55718c;background:#183653;color:var(--ink);padding:10px 16px;border-radius:12px;font-weight:700;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:var(--cyan)}.btn.primary{background:var(--cyan);color:#062033;border-color:var(--cyan)}.btn.ghost{background:transparent}.btn.small{padding:7px 11px;font-size:.88rem}
+nav{position:sticky;top:0;z-index:10;margin:18px 0;padding:8px;background:#08182beF;border:1px solid var(--line);border-radius:16px;display:flex;gap:6px;overflow:auto;backdrop-filter:blur(12px)}
+nav a{white-space:nowrap;text-decoration:none;color:var(--muted);padding:9px 12px;border-radius:10px;font-size:.9rem}nav a:hover{background:#193653;color:white}
+section{scroll-margin-top:90px;margin:30px 0}.section-head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:16px}.eyebrow{color:var(--cyan);font-weight:800;font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}.section-head h2{font-size:clamp(1.5rem,3vw,2.2rem);margin:4px 0}.sub{color:var(--muted);max-width:720px;margin:0}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}.card{background:linear-gradient(145deg,#122a45,#0d2037);border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 8px 28px #0002}.span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}.card h3{margin:0 0 8px;font-size:1.12rem}.card p{color:#c1d2e1;margin:8px 0}.tag{display:inline-block;color:var(--cyan);font-size:.75rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}.icon{font-size:2rem;margin-bottom:8px}.muted{color:var(--muted)}.callout{border-left:3px solid var(--gold);padding:12px 15px;background:#ffd47712;border-radius:0 12px 12px 0;color:#f4e6c4;margin:14px 0}.science-note{border-left-color:var(--cyan);background:#66e2ed10;color:#d4f6f8}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.time-card{border:1px solid var(--line);background:#10243d;border-radius:15px;padding:14px;min-height:130px}.time-card strong{color:var(--cyan);display:block;font-size:1.15rem}.time-card b{display:block;margin:5px 0}.time-card small{color:var(--muted)}
+.visual{min-height:170px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:radial-gradient(circle at center,#1c4565,#0b1b30);margin:12px 0;overflow:hidden}.visual svg{width:100%;max-height:190px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{background:#0b1c30;border:1px solid var(--line);color:var(--muted);border-radius:30px;padding:8px 13px}.tab.active{background:#1d5265;color:#fff;border-color:var(--cyan)}.tab-panel{display:none}.tab-panel.active{display:block}
+.fact-list{padding-left:20px;color:#c7d8e7}.fact-list li{margin:7px 0}.qa{border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;background:#0d2036}.qa p{margin:0 0 12px}.answers{display:flex;gap:8px;flex-wrap:wrap}.answer{border:1px solid #48627d;background:#142d49;color:#eaf5ff;border-radius:10px;padding:8px 12px}.answer:hover{border-color:var(--cyan)}.feedback{min-height:24px;margin-top:9px;font-size:.9rem;font-weight:650}.correct{color:var(--green)}.wrong{color:#ffb0b0}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.step{padding:14px;border-radius:14px;background:#10243d;border:1px solid var(--line)}.step .num{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:#1d5265;color:var(--cyan);font-weight:900;margin-bottom:9px}
+textarea{width:100%;min-height:82px;resize:vertical;background:#091a2d;border:1px solid #385673;border-radius:11px;color:white;padding:11px}label{display:block;font-size:.9rem;color:#d3e2ef;margin:10px 0 6px}.experiment-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.meter{height:8px;background:#1a3653;border-radius:20px;overflow:hidden;margin:12px 0}.meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--cyan),var(--violet));transition:width .3s}
+.timerbox{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.clock{font-variant-numeric:tabular-nums;font-size:2.5rem;font-weight:900;color:var(--cyan);min-width:130px}.timer-controls{display:flex;gap:8px;flex-wrap:wrap}.stage-list{display:grid;gap:7px}.stage-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 12px;background:#0c1e33;border:1px solid var(--line);border-radius:10px}.stage-row.active{border-color:var(--gold);background:#473b241c}.stage-row small{color:var(--muted)}
+.quiz-result{font-size:1rem;font-weight:800;color:var(--gold)}.movie-frame{display:grid;grid-template-columns:1fr 1fr;gap:12px}.movie-frame>div{background:#0a1b2e;border:1px solid var(--line);border-radius:14px;padding:15px}.movie-frame h4{margin:0 0 8px;color:var(--cyan)}.footer{text-align:center;color:#8fa9c0;padding:30px 10px 10px;font-size:.85rem}
+@media(max-width:800px){.span4,.span6,.span8{grid-column:span 12}.timeline{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.experiment-grid,.movie-frame{grid-template-columns:1fr}}
+@media(max-width:460px){.wrap{padding:12px}.timeline{grid-template-columns:1fr 1fr}.time-card{padding:11px}.hero{border-radius:20px}.clock{font-size:2rem}}
+@media print{body{background:white;color:#111}.hero,.card,.time-card{background:white;color:#111;box-shadow:none;border:1px solid #aaa}.hero p,.card p,.muted,.sub,.fact-list{color:#222}nav,.hero-actions,.timer-controls,.btn{display:none}.wrap{max-width:none}.card{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand">SCIENCE · WAVES LAB</div><div class="offline">● ПРАЦЮЄ ОФЛАЙН · БЕЗ БІБЛІОТЕК</div></header>
+
+<div class="hero">
+  <div class="kicker">Інтерактивна наукова зустріч · 9 клас</div>
+  <h1>ХВИЛІ: від людського тіла <span>до краю Всесвіту</span></h1>
+  <p class="sub">Як хвилі допомагають «побачити» людину і дослідити космос? Досліджуємо, як інформація про невидиме стає доступною завдяки хвильовим явищам.</p>
+  <div class="meta"><span class="chip">👩‍🏫 Ведуча: Вікторія</span><span class="chip">🎓 9 клас · 14–15 років</span><span class="chip">⏱ 45 хвилин</span><span class="chip">⚛ Фізика й астрономія</span></div>
+  <div class="hero-actions"><a class="btn primary" href="#plan">Розпочати зустріч ↓</a><button class="btn ghost" onclick="window.print()">Друкувати план</button><a class="btn ghost" href="#experiment">Перейти до досліду</a></div>
+</div>
+
+<nav aria-label="Навігація"><a href="#plan">План 45 хв</a><a href="#science">Наука хвиль</a><a href="#experiment">Дослід POE</a><a href="#interstellar">Інтерстеллар</a><a href="#quiz">Бліц</a><a href="#reflection">Рефлексія</a><a href="#leader">Ведучій</a></nav>
+
+<section id="plan">
+ <div class="section-head"><div><div class="eyebrow">Маршрут зустрічі</div><h2>45 хвилин — від запитання до відкриття</h2><p class="sub">Усі етапи разом становлять рівно 45 хвилин. Натисніть на етап, щоб перейти до відповідного блоку.</p></div></div>
+ <div class="timeline">
+  <a class="time-card" href="#start" style="text-decoration:none;color:inherit"><strong>0–3 хв · 3 хв</strong><b>Старт і правила</b><small>Мета, взаємодія, сигнал тиші</small></a>
+  <a class="time-card" href="#hook" style="text-decoration:none;color:inherit"><strong>3–7 хв · 4 хв</strong><b>Відчуй коливання</b><small>Голос як джерело звукової хвилі</small></a>
+  <a class="time-card" href="#science" style="text-decoration:none;color:inherit"><strong>7–17 хв · 10 хв</strong><b>Знайомство з наукою</b><small>Медицина та дослідження космосу</small></a>
+  <a class="time-card" href="#movement" style="text-decoration:none;color:inherit"><strong>17–20 хв · 3 хв</strong><b>Полювання за предметом</b><small>Знайди відбивач і поглинач</small></a>
+  <a class="time-card" href="#experiment" style="text-decoration:none;color:inherit"><strong>20–32 хв · 12 хв</strong><b>Головний дослід POE</b><small>Передбач · Спостерігай · Поясни</small></a>
+  <a class="time-card" href="#discussion" style="text-decoration:none;color:inherit"><strong>32–36 хв · 4 хв</strong><b>Обговорення</b><small>Відлуння, УЗД і радіолокація</small></a>
+  <a class="time-card" href="#interstellar" style="text-decoration:none;color:inherit"><strong>36–40 хв · 4 хв</strong><b>Інтерстеллар</b><small>Наука та кінематограф</small></a>
+  <a class="time-card" href="#quiz" style="text-decoration:none;color:inherit"><strong>40–45 хв · 5 хв</strong><b>Рефлексія</b><small>Бліц 2,5 хв + інсайт 2,5 хв</small></a>
+ </div>
+</section>
+
+<section id="start">
+ <div class="section-head"><div><div class="eyebrow">0–3 хв · 3 хвилини</div><h2>Старт і правила взаємодії</h2></div></div>
+ <div class="grid">
+  <div class="card span8"><span class="tag">Слова ведучої</span><h3>Сьогодні ми шукатимемо невидиме за допомогою хвиль</h3><p>Наша мета — з’ясувати, як за відбитими або зміненими хвилями отримують інформацію про об’єкти, недоступні для безпосереднього спостереження.</p><div class="callout">Головне запитання: «Як хвилі допомагають побачити людину і дослідити космос?»</div></div>
+  <div class="card span4"><span class="tag">Домовленості</span><ul class="fact-list"><li>Піднята рука — сигнал тиші.</li><li>Говоримо по черзі, слухаємо одне одного.</li><li>Жести: 👍 так · ↔ не впевнений · 👎 ні.</li><li>У досліді дотримуємося безпеки та помірної гучності.</li></ul></div>
+ </div>
+</section>
+
+<section id="hook">
+ <div class="section-head"><div><div class="eyebrow">3–7 хв · 4 хвилини</div><h2>Відчуй коливання прямо зараз</h2></div></div>
+ <div class="grid">
+  <div class="card span6"><div class="icon">🗣️</div><h3>Мініактивність</h3><ol class="fact-list"><li>Обережно прикладіть долоню до передньої частини шиї.</li><li>Протяжно промовте «ааа» або «ммм» на комфортній гучності.</li><li>Відчуйте вібрацію голосових складок, яка передається тканинам.</li><li>Покажіть жестом свій рівень зацікавленості.</li></ol></div>
+  <div class="card span6"><div class="tag">Місток до теми</div><h3>Що тут відбувається з погляду фізики?</h3><p>Голосові складки коливаються й збуджують коливання повітря. Звукова хвиля поширюється в середовищі та переносить енергію.</p><div class="visual"><svg viewBox="0 0 420 150" role="img" aria-label="Схематичне зображення звукової хвилі"><path d="M10 75 C35 15 60 15 85 75 S135 135 160 75 S210 15 235 75 S285 135 310 75 S360 15 410 75" fill="none" stroke="#66e2ed" stroke-width="4"/><path d="M10 75H410" stroke="#7995ad" stroke-dasharray="4 7" opacity=".5"/></svg></div><p class="muted">Звуку потрібне середовище: у вакуумі він не поширюється.</p></div>
+ </div>
+</section>
+
+<section id="science">
+ <div class="section-head"><div><div class="eyebrow">7–17 хв · 10 хвилин</div><h2>Як хвилі відкривають невидиме</h2><p class="sub">Перемикайте вкладки. Після кожного блоку поставте класу коротке запитання.</p></div></div>
+ <div class="tabs" role="tablist"><button class="tab active" data-tab="med" role="tab">🩺 Медицина</button><button class="tab" data-tab="space" role="tab">🔭 Космос</button><button class="tab" data-tab="types" role="tab">〰️ Три типи хвиль</button></div>
+ <div class="tab-panel active" id="med">
+  <div class="grid">
+   <div class="card span4"><div class="icon">🩻</div><h3>Рентгенографія</h3><p>Рентгенівське випромінювання — електромагнітні хвилі з високою енергією. Різні тканини по-різному послаблюють його, тому на зображенні мають різну яскравість.</p><span class="tag">Електромагнітні · іонізуючі</span></div>
+   <div class="card span4"><div class="icon">🫀</div><h3>Ультразвукова діагностика</h3><p>УЗД надсилає в тіло ультразвукові імпульси. Частина хвилі відбивається на межах тканин із різним акустичним опором. Апарат аналізує відлуння та будує зображення.</p><span class="tag">Механічні · ультразвук</span></div>
+   <div class="card span4"><div class="icon">🧲</div><h3>МРТ</h3><p>МРТ використовує сильне магнітне поле та радіочастотні імпульси, щоб отримати сигнал від ядер водню в тканинах. Це не рентгенівське дослідження.</p><span class="tag">Магнітний резонанс · радіочастота</span></div>
+  </div>
+  <div class="qa" data-correct="b"><p><b>Запитання 1.</b> Який метод із перелічених використовує відбиття механічних хвиль?</p><div class="answers"><button class="answer" data-value="a">Рентгенографія</button><button class="answer" data-value="b">УЗД</button><button class="answer" data-value="c">МРТ</button></div><div class="feedback"></div></div>
+ </div>
+ <div class="tab-panel" id="space">
+  <div class="grid">
+   <div class="card span4"><div class="icon">📡</div><h3>Радіотелескопи</h3><p>Реєструють радіохвилі від космічних об’єктів. За сигналами досліджують пульсари, газові хмари та далекі галактики.</p></div>
+   <div class="card span4"><div class="icon">🌌</div><h3>Інфрачервоний телескоп James Webb</h3><p>Спостерігає Всесвіт в інфрачервоному діапазоні. Інфрачервоне випромінювання краще проходить крізь деякі пилові хмари, ніж видиме світло, але не «бачить крізь усе».</p></div>
+   <div class="card span4"><div class="icon">🕳️</div><h3>Детектори LIGO</h3><p>Вимірюють надзвичайно малі зміни відстаней, спричинені проходженням гравітаційних хвиль — збурень простору-часу, наприклад від злиття чорних дір.</p></div>
+  </div>
+  <div class="qa" data-correct="c"><p><b>Запитання 2.</b> Який сигнал реєструє обсерваторія LIGO?</p><div class="answers"><button class="answer" data-value="a">Звукові хвилі</button><button class="answer" data-value="b">Рентгенівські хвилі</button><button class="answer" data-value="c">Гравітаційні хвилі</button></div><div class="feedback"></div></div>
+ </div>
+ <div class="tab-panel" id="types">
+  <div class="grid">
+   <div class="card span4"><h3 style="color:var(--cyan)">Механічні</h3><p>Поширюються в речовині: повітрі, воді, тканинах, твердих тілах. Приклади: звук, ультразвук, сейсмічні хвилі.</p></div>
+   <div class="card span4"><h3 style="color:var(--violet)">Електромагнітні</h3><p>Можуть поширюватися у вакуумі. Приклади: радіохвилі, інфрачервоне, видиме, ультрафіолетове, рентгенівське та гамма-випромінювання.</p></div>
+   <div class="card span4"><h3 style="color:var(--gold)">Гравітаційні</h3><p>Збурення геометрії простору-часу, які поширюються зі швидкістю світла. Їх джерелами можуть бути прискорені масивні об’єкти.</p></div>
+  </div>
+  <div class="callout science-note"><b>Важливо:</b> гравітаційні хвилі — не різновид звуку й не електромагнітне випромінювання. Це окреме фізичне явище, передбачене загальною теорією відносності.</div>
+ </div>
+</section>
+
+<section id="movement">
+ <div class="section-head"><div><div class="eyebrow">17–20 хв · 3 хвилини</div><h2>Полювання за предметом</h2></div></div>
+ <div class="grid">
+  <div class="card span6"><div class="icon">🧱</div><h3>Знайди твердий предмет</h3><p>Підручник, тверда обкладинка зошита або пластиковий пенал. Такі поверхні зазвичай відбивають звук краще, ніж м’які пористі матеріали.</p></div>
+  <div class="card span6"><div class="icon">🧣</div><h3>Знайди м’який матеріал</h3><p>Светр, худі, шарф або тканинний рюкзак. М’які пористі матеріали можуть поглинати частину звукової енергії.</p></div>
+  <div class="card span12"><div class="callout">За 20 секунд знайдіть обидва предмети. Працюємо без біганини, не кидаємо речі та не створюємо надмірного шуму.</div></div>
+ </div>
+</section>
+
+<section id="experiment">
+ <div class="section-head"><div><div class="eyebrow">20–32 хв · 12 хвилин</div><h2>Головний дослід POE</h2><p class="sub">«Відлуння та перешкоди: як хвиля взаємодіє з тим, чого ми не бачимо?»</p></div></div>
+ <div class="card">
+  <div class="tag">Обладнання</div><p>Смартфон із відтворенням короткого звукового сигналу (або таймер), тверда обкладинка чи книжка, м’яка тканина. За відсутності смартфонів — тихе клацання пальцями або легкий удар лінійкою по поверхні.</p>
+  <div class="callout science-note">Для чесного порівняння зберігайте приблизно однаковими відстань, напрямок, гучність джерела та положення поверхні. Не використовуйте гучні сигнали й не підносьте джерело звуку до вуха.</div>
+ </div>
+ <div class="steps" style="margin-top:14px">
+  <div class="step"><div class="num">1</div><b>ПЕРЕДБАЧ · 2 хв</b><p class="muted">Що станеться з відбитим звуком, якщо тверду поверхню накрити тканиною?</p></div>
+  <div class="step"><div class="num">2</div><b>СПОСТЕРІГАЙ · 6 хв</b><p class="muted">Порівняйте звук біля відкритої твердої поверхні та тієї самої поверхні, накритої тканиною.</p></div>
+  <div class="step"><div class="num">3</div><b>ПОЯСНИ · 4 хв</b><p class="muted">Поясніть результат через відбивання та поглинання хвиль.</p></div>
+ </div>
+ <div class="experiment-grid" style="margin-top:14px">
+  <div class="card"><span class="tag">P · Predict</span><h3>Мій прогноз</h3><label for="prediction">Як зміниться відбитий звук?</label><textarea id="prediction" placeholder="Я прогнозую, що..."></textarea><div class="answers" style="margin-top:9px"><button class="answer" onclick="quickFill('prediction','З накритою тканиною відбитий звук буде менш виразним, оскільки тканина поглинатиме частину звукової енергії.')">Вставити можливий прогноз</button></div></div>
+  <div class="card"><span class="tag">O · Observe</span><h3>Мої спостереження</h3><label for="observation">Що ви почули? Запишіть порівняння.</label><textarea id="observation" placeholder="Без тканини... З тканиною..."></textarea><div class="answers" style="margin-top:9px"><button class="answer" onclick="quickFill('observation','Без тканини звук від поверхні був виразнішим. Після накривання тканиною відбитий звук сприймався слабше / менш чітко. (Замініть відповідно до власного спостереження.)')">Приклад формулювання</button></div></div>
+  <div class="card span12"><span class="tag">E · Explain</span><h3>Пояснення та висновок</h3><label for="explanation">Чому отримали такий результат? Як це пов’язано з УЗД?</label><textarea id="explanation" placeholder="Частина хвилі... На межі середовищ..."></textarea><div class="meter"><span id="progress"></span></div><small class="muted" id="progressText">Заповнено 0 із 3 етапів POE</small></div>
+ </div>
+</section>
+
+<section id="discussion">
+ <div class="section-head"><div><div class="eyebrow">32–36 хв · 4 хвилини</div><h2>Від досліду — до технологій</h2></div></div>
+ <div class="grid">
+  <div class="card span6"><h3>Як працює УЗД?</h3><p>Датчик випромінює короткі ультразвукові імпульси та приймає відбиті сигнали. На межах тканин з різним акустичним опором частина хвилі відбивається. За часом повернення та характеристиками сигналу апарат формує зображення.</p></div>
+  <div class="card span6"><h3>А як працює радар?</h3><p>Радар випромінює радіохвилі й приймає відбитий сигнал. За затримкою сигналу можна визначити відстань до об’єкта, а за зміною частоти — оцінити його радіальну швидкість.</p></div>
+  <div class="card span12"><div class="callout science-note"><b>Межі аналогії:</b> наш звуковий дослід демонструє загальний принцип взаємодії хвиль із матеріалами, але не є моделлю медичного УЗД у всіх деталях. УЗД використовує ультразвук, спеціальний датчик, акустичний контактний гель і цифрову обробку сигналу.</div></div>
+ </div>
+</section>
+
+<section id="interstellar">
+ <div class="section-head"><div><div class="eyebrow">36–40 хв · 4 хвилини</div><h2>Наука у фільмі «Інтерстеллар»</h2><p class="sub">Мисленнєвий експеримент: відокремлюємо наукову основу від художнього задуму.</p></div></div>
+ <div class="card">
+  <div class="movie-frame">
+   <div><h4>Що має наукове підґрунтя</h4><ul class="fact-list"><li>Гравітація масивного об’єкта може викривляти траєкторії світла — виникає гравітаційне лінзування.</li><li>Поблизу дуже масивного компактного об’єкта перебіг часу для спостерігачів у різних умовах може відрізнятися.</li><li>Зображення чорної діри у фільмі створювали з урахуванням розрахунків загальної теорії відносності.</li></ul></div>
+   <div><h4>Що потребує уточнення</h4><ul class="fact-list"><li>Чорну діру не можна побачити як звичайну світну кулю: спостерігають вплив на світло й навколишню речовину.</li><li>Гравітаційні хвилі не є видимими «хвилями» навколо чорної діри у звичайному сенсі.</li><li>Деталі сюжету, зокрема подорожі та сцени всередині чорної діри, є художньою фантастикою.</li></ul></div>
+  </div>
+  <div class="qa" data-correct="a"><p><b>Запитання до класу.</b> Чому світло від далеких зір може змінювати видиме положення або форму поблизу масивної чорної діри?</p><div class="answers"><button class="answer" data-value="a">Через викривлення простору-часу та гравітаційне лінзування</button><button class="answer" data-value="b">Через відбивання звукових хвиль</button><button class="answer" data-value="c">Через те, що чорна діра світиться як зоря</button></div><div class="feedback"></div></div>
+  <p class="muted">Якщо відеофрагмент недоступний, обговоріть описані ідеї за цим блоком або використайте заздалегідь збережене зображення чорної діри. Для порівняння можна показати наукову візуалізацію та зображення тіні надмасивної чорної діри M87*.</p>
+ </div>
+</section>
+
+<section id="quiz">
+ <div class="section-head"><div><div class="eyebrow">40–42,5 хв · 2,5 хвилини</div><h2>Бліц «Правда чи ні?»</h2><p class="sub">Учні відповідають жестами. Для самоперевірки натисніть «Правда» або «Ні».</p></div></div>
+ <div id="quizBox" class="card">
+  <div class="tag" id="quizCount">Твердження 1 із 5</div><h3 id="quizQuestion">Звукові хвилі можуть поширюватися у вакуумі.</h3>
+  <div class="answers"><button class="answer" onclick="checkBlitz(true)">Правда 👍</button><button class="answer" onclick="checkBlitz(false)">Ні 👎</button></div>
+  <div class="feedback" id="quizFeedback" aria-live="polite"></div>
+  <div style="display:flex;justify-content:space-between;gap:10px;margin-top:14px"><span class="quiz-result" id="quizScore">Рахунок: 0 / 0</span><button class="btn small" id="nextQuiz" onclick="nextBlitz()" disabled>Наступне →</button></div>
+ </div>
+</section>
+
+<section id="reflection">
+ <div class="section-head"><div><div class="eyebrow">42,5–45 хв · 2,5 хвилини</div><h2>Хвиля інсайту</h2></div></div>
+ <div class="grid">
+  <div class="card span8"><h3>Закінчи речення</h3><p>«Сьогодні хвилі допомогли мені побачити / зрозуміти, що…»</p><textarea id="insight" placeholder="Мій інсайт сьогодні..."></textarea><button class="btn primary" style="margin-top:10px" onclick="showInsight()">Показати мою думку</button><p id="insightOut" class="feedback" aria-live="polite"></p></div>
+  <div class="card span4"><h3>Швидка самооцінка</h3><p>Наскільки зрозумілою стала тема?</p><div class="answers"><button class="answer" onclick="rate('Зрозуміло!')">👍 Зрозуміло</button><button class="answer" onclick="rate('Ще маю запитання.')">↔ Є запитання</button><button class="answer" onclick="rate('Потрібне повторення.')">👎 Повторити</button></div><p id="ratingOut" class="feedback"></p></div>
+ </div>
+</section>
+
+<section id="leader">
+ <div class="section-head"><div><div class="eyebrow">Інструменти ведучої</div><h2>Таймер і план Б</h2><p class="sub">Таймер працює локально у відкритій сторінці. Він не надсилає дані й не потребує інтернету.</p></div></div>
+ <div class="grid">
+  <div class="card span6"><div class="tag">Загальний таймер зустрічі</div><div class="timerbox"><div class="clock" id="clock">45:00</div><div class="timer-controls"><button class="btn primary" id="timerToggle" onclick="toggleTimer()">Старт</button><button class="btn" onclick="resetTimer()">Скинути</button></div></div><div class="meter"><span id="timerProgress"></span></div><small class="muted" id="timerStatus">Готовий до запуску · 45 хвилин</small></div>
+  <div class="card span6"><div class="tag">Контроль етапів</div><div class="stage-list" id="stageList"></div></div>
+  <div class="card span12"><div class="tag">План Б · якщо щось пішло не так</div>
+   <div class="grid">
+    <div class="span4"><h3>Немає смартфонів або шумно</h3><p>Проведіть демонстрацію біля дошки. Один учень створює негучний короткий звук, інші порівнюють його сприйняття біля твердої поверхні та тканини. Не робіть висновків лише за гучністю джерела.</p></div>
+    <div class="span4"><h3>Не запускається відео</h3><p>Використайте заздалегідь збережений кадр чорної діри або усно розберіть гравітаційне лінзування. Підійде також порівняння зображень M87* та художньої візуалізації.</p></div>
+    <div class="span4"><h3>Залишилося мало часу</h3><p>Скоротіть бліц до трьох тверджень. Рефлексію проведіть жестами: 👍 зрозумів; ↔ хочу уточнити; 👎 потрібно повторити.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<footer class="footer">ХВИЛІ · Науково-пізнавальна зустріч для 9 класу · Фізика й астрономія<br>Інтерактивний ресурс для офлайн-використання. Усі інтерактивні відповіді залишаються у вашому браузері.</footer>
+</div>
+<script>
+const tabs=document.querySelectorAll('.tab');
+tabs.forEach(btn=>btn.addEventListener('click',()=>{tabs.forEach(x=>x.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active')}));
+document.querySelectorAll('.qa').forEach(q=>q.querySelectorAll('.answer').forEach(b=>b.addEventListener('click',()=>{const f=q.querySelector('.feedback');const ok=b.dataset.value===q.dataset.correct;f.textContent=ok?'Правильно! Чудове міркування.':'Спробуй ще раз. Подумай, який тип хвиль або фізичний процес описано.';f.className='feedback '+(ok?'correct':'wrong')})));
+function quickFill(id,value){document.getElementById(id).value=value;updatePOE()}
+['prediction','observation','explanation'].forEach(id=>document.getElementById(id).addEventListener('input',updatePOE));
+function updatePOE(){let n=['prediction','observation','explanation'].filter(id=>document.getElementById(id).value.trim()).length;document.getElementById('progress').style.width=(n/3*100)+'%';document.getElementById('progressText').textContent=`Заповнено ${n} із 3 етапів POE`}
+const blitz=[
+ {q:'Звукові хвилі можуть поширюватися у вакуумі.',a:false,e:'Ні. Звук — механічна хвиля, якій потрібне матеріальне середовище.'},
+ {q:'УЗД використовує відбиття ультразвуку від меж тканин.',a:true,e:'Так. Апарат аналізує відбиті ультразвукові імпульси.'},
+ {q:'МРТ — це різновид рентгенографії.',a:false,e:'Ні. МРТ використовує магнітне поле та радіочастотні імпульси.'},
+ {q:'Телескоп James Webb спостерігає переважно в інфрачервоному діапазоні.',a:true,e:'Так. Це дає змогу досліджувати холодні та дуже далекі об’єкти й деякі запилені області.'},
+ {q:'LIGO реєструє гравітаційні хвилі.',a:true,e:'Так. Детектори вимірюють надзвичайно малі зміни довжини плечей інтерферометра.'}
+];let qi=0,score=0,answered=false;
+function renderBlitz(){document.getElementById('quizCount').textContent=`Твердження ${qi+1} із ${blitz.length}`;document.getElementById('quizQuestion').textContent=blitz[qi].q;document.getElementById('quizFeedback').textContent='';document.getElementById('quizFeedback').className='feedback';document.getElementById('nextQuiz').disabled=true;document.getElementById('nextQuiz').textContent=qi===blitz.length-1?'Завершити':'Наступне →';answered=false}
+function checkBlitz(v){if(answered)return;answered=true;let item=blitz[qi],ok=v===item.a;if(ok)score++;document.getElementById('quizFeedback').textContent=(ok?'Правильно! ':'Не зовсім. ')+item.e;document.getElementById('quizFeedback').className='feedback '+(ok?'correct':'wrong');document.getElementById('quizScore').textContent=`Рахунок: ${score} / ${qi+1}`;document.getElementById('nextQuiz').disabled=false}
+function nextBlitz(){if(!answered)return;if(qi<blitz.length-1){qi++;renderBlitz()}else{document.getElementById('quizQuestion').textContent=`Бліц завершено! Ваш результат: ${score} із ${blitz.length}.`;document.getElementById('quizCount').textContent='Підсумок';document.querySelector('#quizBox .answers').style.display='none';document.getElementById('quizFeedback').textContent='Пам’ятайте: важливо не лише знати відповідь, а й пояснити фізичне явище.';document.getElementById('nextQuiz').style.display='none'}}
+function showInsight(){let v=document.getElementById('insight').value.trim();document.getElementById('insightOut').textContent=v?'Ваш інсайт: «'+v+'»':'Спочатку запишіть свою думку.'}
+function rate(t){document.getElementById('ratingOut').textContent=t}
+const stages=[['0–3','Старт і правила',3],['3–7','Відчуй коливання',4],['7–17','Знайомство з наукою',10],['17–20','Руханка-підготовка',3],['20–32','Дослід POE',12],['32–36','Обговорення',4],['36–40','Інтерстеллар',4],['40–45','Рефлексія',5]];
+document.getElementById('stageList').innerHTML=stages.map((s,i)=>`<div class="stage-row" data-stage="${i}"><span><b>${s[0]} хв</b> · ${s[1]}</span><small>${s[2]} хв</small></div>`).join('');
+let elapsed=0,interval=null;
+function fmt(s){return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function updateTimer(){let left=Math.max(0,2700-elapsed);document.getElementById('clock').textContent=fmt(left);document.getElementById('timerProgress').style.width=(elapsed/2700*100)+'%';let acc=0,idx=stages.findIndex(s=>{acc+=s[2]*60;return elapsed<acc});document.querySelectorAll('.stage-row').forEach((r,i)=>r.classList.toggle('active',i===idx));document.getElementById('timerStatus').textContent=left===0?'Час зустрічі завершився. Дякуємо за участь!':`Минуло ${fmt(elapsed)} · залишилося ${fmt(left)}`;if(left===0){clearInterval(interval);interval=null;document.getElementById('timerToggle').textContent='Старт'}}
+function toggleTimer(){if(interval){clearInterval(interval);interval=null;document.getElementById('timerToggle').textContent='Продовжити'}else if(elapsed<2700){interval=setInterval(()=>{elapsed++;updateTimer();if(elapsed>=2700){clearInterval(interval);interval=null;document.getElementById('timerToggle').textContent='Старт'}},1000);document.getElementById('timerToggle').textContent='Пауза'}}
+function resetTimer(){clearInterval(interval);interval=null;elapsed=0;document.getElementById('timerToggle').textContent='Старт';updateTimer()}
+renderBlitz();updateTimer();
+</script>
+</body>
+</html>
